@@ -1,0 +1,31 @@
+<form>
+    <field>
+        <id>client.enabled</id>
+        <label>Enabled</label>
+        <type>checkbox</type>
+        <help>Enable this RADIUS client.</help>
+    </field>
+    <field>
+        <id>client.network</id>
+        <label>Client address</label>
+        <type>text</type>
+        <help>Host address or CIDR network the request originates from, e.g. 192.168.1.10 or 192.168.1.0/24.</help>
+    </field>
+    <field>
+        <id>client.secret</id>
+        <label>Shared secret</label>
+        <type>password</type>
+        <help>RADIUS shared secret for this client.</help>
+    </field>
+    <field>
+        <id>client.shortname</id>
+        <label>Shortname</label>
+        <type>text</type>
+        <help>Optional shortname for this client.</help>
+    </field>
+    <field>
+        <id>client.description</id>
+        <label>Description</label>
+        <type>text</type>
+    </field>
+</form>

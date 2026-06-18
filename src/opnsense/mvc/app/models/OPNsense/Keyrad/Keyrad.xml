@@ -1,0 +1,144 @@
+<model>
+    <mount>//OPNsense/Keyrad</mount>
+    <version>1.0.0</version>
+    <description>keyrad Keycloak RADIUS server settings</description>
+    <items>
+        <general>
+            <enabled type="BooleanField">
+                <Default>0</Default>
+                <Required>Y</Required>
+            </enabled>
+            <token_url type="TextField">
+                <Required>Y</Required>
+                <Mask>/^https?:\/\/.+/i</Mask>
+                <ValidationMessage>Enter the Keycloak token endpoint URL, e.g. https://idp/realms/&lt;realm&gt;/protocol/openid-connect/token</ValidationMessage>
+            </token_url>
+            <api_url type="TextField">
+                <Required>Y</Required>
+                <Mask>/^https?:\/\/.+/i</Mask>
+                <ValidationMessage>Enter the Keycloak admin API URL, e.g. https://idp/admin/realms/&lt;realm&gt;</ValidationMessage>
+            </api_url>
+            <realm type="TextField">
+                <Required>Y</Required>
+                <Mask>/^[^\s]+$/</Mask>
+                <ValidationMessage>A realm name is required.</ValidationMessage>
+            </realm>
+            <client_id type="TextField">
+                <Required>Y</Required>
+                <Mask>/^[^\s]+$/</Mask>
+                <ValidationMessage>A client id is required.</ValidationMessage>
+            </client_id>
+            <client_secret type="TextField">
+                <Required>Y</Required>
+                <ValidationMessage>A client secret is required.</ValidationMessage>
+            </client_secret>
+            <insecure_skip_tls_verify type="BooleanField">
+                <Default>0</Default>
+                <Required>Y</Required>
+            </insecure_skip_tls_verify>
+            <listen_address type="TextField">
+                <Default>0.0.0.0</Default>
+                <Required>Y</Required>
+                <Mask>/^[0-9a-fA-F:.]+$/</Mask>
+                <ValidationMessage>Enter the IPv4/IPv6 address to bind to (e.g. 0.0.0.0).</ValidationMessage>
+            </listen_address>
+            <listen_port type="IntegerField">
+                <Default>1812</Default>
+                <Required>Y</Required>
+                <MinimumValue>1</MinimumValue>
+                <MaximumValue>65535</MaximumValue>
+                <ValidationMessage>The listen port must be an integer between 1 and 65535.</ValidationMessage>
+            </listen_port>
+            <otp_challenge_message type="TextField">
+                <Default>Please enter your OTP code</Default>
+                <Required>N</Required>
+            </otp_challenge_message>
+            <pap type="BooleanField">
+                <Default>1</Default>
+                <Required>Y</Required>
+            </pap>
+            <disable_message_authenticator type="BooleanField">
+                <Default>0</Default>
+                <Required>Y</Required>
+            </disable_message_authenticator>
+            <disable_challenge_response type="BooleanField">
+                <Default>0</Default>
+                <Required>Y</Required>
+            </disable_challenge_response>
+            <debug type="BooleanField">
+                <Default>0</Default>
+                <Required>Y</Required>
+            </debug>
+        </general>
+        <clients>
+            <client type="ArrayField">
+                <enabled type="BooleanField">
+                    <Default>1</Default>
+                    <Required>Y</Required>
+                </enabled>
+                <network type="TextField">
+                    <Required>Y</Required>
+                    <Mask>/^[0-9a-fA-F:.\/]+$/</Mask>
+                    <ValidationMessage>Enter a host address or CIDR network (e.g. 192.168.1.0/24).</ValidationMessage>
+                </network>
+                <secret type="TextField">
+                    <Required>Y</Required>
+                    <ValidationMessage>A shared secret is required.</ValidationMessage>
+                </secret>
+                <shortname type="TextField">
+                    <Required>N</Required>
+                    <Mask>/^[a-zA-Z0-9._-]*$/</Mask>
+                    <ValidationMessage>Shortname may contain letters, digits, dot, dash and underscore.</ValidationMessage>
+                </shortname>
+                <description type="TextField">
+                    <Required>N</Required>
+                    <Mask>/^[\t\n\v\f\r 0-9a-zA-Z.,_\x{00A0}-\x{FFFF}]{0,255}$/u</Mask>
+                    <ValidationMessage>Enter a description.</ValidationMessage>
+                </description>
+            </client>
+        </clients>
+        <mappings>
+            <mapping type="ArrayField">
+                <enabled type="BooleanField">
+                    <Default>1</Default>
+                    <Required>Y</Required>
+                </enabled>
+                <scope type="TextField">
+                    <Required>Y</Required>
+                    <Mask>/^[^\s].*$/</Mask>
+                    <ValidationMessage>Enter a role, group or scope name. Prefix with "re:" for a regular expression.</ValidationMessage>
+                </scope>
+                <vendor type="IntegerField">
+                    <Required>N</Required>
+                    <MinimumValue>0</MinimumValue>
+                    <MaximumValue>4294967295</MaximumValue>
+                    <ValidationMessage>The vendor id must be an integer (IANA private enterprise number). Leave empty for standard attributes.</ValidationMessage>
+                </vendor>
+                <attribute type="IntegerField">
+                    <Required>Y</Required>
+                    <MinimumValue>1</MinimumValue>
+                    <MaximumValue>255</MaximumValue>
+                    <ValidationMessage>The attribute number must be an integer between 1 and 255.</ValidationMessage>
+                </attribute>
+                <value type="TextField">
+                    <Required>Y</Required>
+                    <ValidationMessage>An attribute value is required.</ValidationMessage>
+                </value>
+                <value_type type="OptionField">
+                    <Required>Y</Required>
+                    <Default>string</Default>
+                    <OptionValues>
+                        <string>string</string>
+                        <integer>integer</integer>
+                        <ipaddr>ipaddr</ipaddr>
+                    </OptionValues>
+                </value_type>
+                <description type="TextField">
+                    <Required>N</Required>
+                    <Mask>/^[\t\n\v\f\r 0-9a-zA-Z.,_\x{00A0}-\x{FFFF}]{0,255}$/u</Mask>
+                    <ValidationMessage>Enter a description.</ValidationMessage>
+                </description>
+            </mapping>
+        </mappings>
+    </items>
+</model>

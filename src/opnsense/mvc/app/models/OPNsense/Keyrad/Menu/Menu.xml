@@ -1,0 +1,5 @@
+<menu>
+    <Services>
+        <Keyrad VisibleName="keyrad RADIUS" cssClass="fa fa-key fa-fw" url="/ui/keyrad"/>
+    </Services>
+</menu>

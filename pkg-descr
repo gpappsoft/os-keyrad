@@ -1,0 +1,18 @@
+keyrad is a Go-based RADIUS server that authenticates users against Keycloak,
+supporting password and OTP (TOTP) flows with challenge-response.
+
+This plugin adds an OPNsense web GUI under Services > keyrad RADIUS to manage
+the keyrad daemon:
+
+  * Keycloak connection settings (token/admin API URL, realm, client id/secret,
+    TLS verification)
+  * RADIUS listener address/port and authentication options (PAP,
+    challenge-response, Message-Authenticator, OTP challenge message)
+  * FreeRADIUS-style RADIUS clients (clients.conf) with shared secrets
+  * Scope/role/group to RADIUS attribute mappings, including Vendor-Specific
+    Attributes (VSA) and regular-expression scope keys
+  * Service control (start/stop/restart/status) and configuration apply
+
+The keyrad daemon binary itself is expected at /usr/local/bin/keyrad. Build it
+for FreeBSD from https://github.com/gpappsoft/keyrad (GOOS=freebsd) and install
+it before enabling the service.

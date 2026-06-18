@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Copyright (C) 2026 Marco Moenig <marco@sec73.io>
+#
+# Licensed under the Apache License, Version 2.0 (the "License").
+
+# PROVIDE: keyrad
+# REQUIRE: NETWORKING SERVERS
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name=keyrad
+desc="keyrad Keycloak RADIUS server"
+rcvar=keyrad_enable
+
+load_rc_config "${name}"
+
+: ${keyrad_enable:="NO"}
+: ${keyrad_extra_flags:=""}
+: ${keyrad_config:="/usr/local/etc/keyrad/keyrad.yaml"}
+: ${keyrad_clients:="/usr/local/etc/keyrad/clients.conf"}
+
+pidfile="/var/run/${name}.pid"
+keyrad_bin="/usr/local/bin/keyrad"
+
+command="/usr/sbin/daemon"
+command_args="-f -S -T ${name} -p ${pidfile} ${keyrad_bin} -c ${keyrad_config} -r ${keyrad_clients} ${keyrad_extra_flags}"
+
+run_rc_command "$1"

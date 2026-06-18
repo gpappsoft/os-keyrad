@@ -1,0 +1,43 @@
+<form>
+    <field>
+        <id>mapping.enabled</id>
+        <label>Enabled</label>
+        <type>checkbox</type>
+        <help>Enable this attribute mapping.</help>
+    </field>
+    <field>
+        <id>mapping.scope</id>
+        <label>Scope / role / group</label>
+        <type>text</type>
+        <help>Keycloak realm role, group or OAuth2 scope to match. Prefix with "re:" for a regular expression, e.g. re:^group_.*</help>
+    </field>
+    <field>
+        <id>mapping.vendor</id>
+        <label>Vendor ID</label>
+        <type>text</type>
+        <help>IANA vendor id for Vendor-Specific Attributes (e.g. 14988 MikroTik, 9 Cisco, 311 Microsoft). Leave empty for standard RADIUS attributes.</help>
+    </field>
+    <field>
+        <id>mapping.attribute</id>
+        <label>Attribute</label>
+        <type>text</type>
+        <help>RADIUS attribute type number (1-255).</help>
+    </field>
+    <field>
+        <id>mapping.value</id>
+        <label>Value</label>
+        <type>text</type>
+        <help>Attribute value to return in the Access-Accept.</help>
+    </field>
+    <field>
+        <id>mapping.value_type</id>
+        <label>Value type</label>
+        <type>dropdown</type>
+        <help>Encoding of the value.</help>
+    </field>
+    <field>
+        <id>mapping.description</id>
+        <label>Description</label>
+        <type>text</type>
+    </field>
+</form>

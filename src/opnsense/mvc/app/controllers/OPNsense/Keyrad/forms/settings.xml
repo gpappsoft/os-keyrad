@@ -1,0 +1,98 @@
+<form>
+    <field>
+        <id>keyrad.general.enabled</id>
+        <label>Enable keyrad</label>
+        <type>checkbox</type>
+        <help>Enable the keyrad RADIUS server.</help>
+    </field>
+    <field>
+        <type>header</type>
+        <label>Keycloak connection</label>
+    </field>
+    <field>
+        <id>keyrad.general.token_url</id>
+        <label>Token URL</label>
+        <type>text</type>
+        <help>OpenID Connect token endpoint, e.g. https://idp.example.com/realms/myrealm/protocol/openid-connect/token</help>
+    </field>
+    <field>
+        <id>keyrad.general.api_url</id>
+        <label>Admin API URL</label>
+        <type>text</type>
+        <help>Keycloak admin REST API base, e.g. https://idp.example.com/admin/realms/myrealm</help>
+    </field>
+    <field>
+        <id>keyrad.general.realm</id>
+        <label>Realm</label>
+        <type>text</type>
+        <help>Keycloak realm name.</help>
+    </field>
+    <field>
+        <id>keyrad.general.client_id</id>
+        <label>Client ID</label>
+        <type>text</type>
+        <help>Confidential client id with service account enabled (e.g. radius-client).</help>
+    </field>
+    <field>
+        <id>keyrad.general.client_secret</id>
+        <label>Client secret</label>
+        <type>password</type>
+        <help>Client secret of the confidential client.</help>
+    </field>
+    <field>
+        <id>keyrad.general.insecure_skip_tls_verify</id>
+        <label>Skip TLS verification</label>
+        <type>checkbox</type>
+        <help>Do not verify the Keycloak TLS certificate. Only use with self-signed certificates in trusted networks.</help>
+    </field>
+    <field>
+        <type>header</type>
+        <label>RADIUS listener</label>
+    </field>
+    <field>
+        <id>keyrad.general.listen_address</id>
+        <label>Listen address</label>
+        <type>text</type>
+        <help>IP address to bind the RADIUS listener to. Use 0.0.0.0 to listen on all IPv4 addresses.</help>
+    </field>
+    <field>
+        <id>keyrad.general.listen_port</id>
+        <label>Listen port</label>
+        <type>text</type>
+        <help>UDP port for RADIUS authentication (default 1812).</help>
+    </field>
+    <field>
+        <type>header</type>
+        <label>Authentication options</label>
+    </field>
+    <field>
+        <id>keyrad.general.otp_challenge_message</id>
+        <label>OTP challenge message</label>
+        <type>text</type>
+        <help>Message shown to the user during the OTP challenge-response step.</help>
+    </field>
+    <field>
+        <id>keyrad.general.pap</id>
+        <label>Enable PAP</label>
+        <type>checkbox</type>
+        <help>Enable PAP authentication (enabled by default).</help>
+    </field>
+    <field>
+        <id>keyrad.general.disable_challenge_response</id>
+        <label>Disable challenge-response</label>
+        <type>checkbox</type>
+        <help>Allow OTP users to authenticate with &lt;password&gt;&lt;otp&gt; in the User-Password field instead of using RADIUS Access-Challenge. Use for legacy clients that cannot handle challenge-response.</help>
+    </field>
+    <field>
+        <id>keyrad.general.disable_message_authenticator</id>
+        <label>Disable Message-Authenticator</label>
+        <type>checkbox</type>
+        <help>Disable Message-Authenticator verification and generation. Only for legacy clients.</help>
+    </field>
+    <field>
+        <id>keyrad.general.debug</id>
+        <label>Debug logging</label>
+        <type>checkbox</type>
+        <help>Enable verbose debug logging for RADIUS and Keycloak communication.</help>
+    </field>
+</form>

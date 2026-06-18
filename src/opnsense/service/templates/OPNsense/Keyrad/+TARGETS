@@ -1,0 +1,3 @@
+keyrad.yaml:/usr/local/etc/keyrad/keyrad.yaml
+clients.conf:/usr/local/etc/keyrad/clients.conf
+keyrad.flags:/etc/rc.conf.d/keyrad

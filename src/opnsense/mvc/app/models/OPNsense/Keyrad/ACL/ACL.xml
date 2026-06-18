@@ -1,0 +1,9 @@
+<acl>
+    <page-services-keyrad>
+        <name>Services: keyrad RADIUS</name>
+        <patterns>
+            <pattern>ui/keyrad/*</pattern>
+            <pattern>api/keyrad/*</pattern>
+        </patterns>
+    </page-services-keyrad>
+</acl>
