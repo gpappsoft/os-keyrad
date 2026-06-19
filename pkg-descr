@@ -13,6 +13,6 @@ the keyrad daemon:
     Attributes (VSA) and regular-expression scope keys
   * Service control (start/stop/restart/status) and configuration apply
 
-The keyrad daemon binary itself is expected at /usr/local/bin/keyrad. Build it
-for FreeBSD from https://github.com/gpappsoft/keyrad (GOOS=freebsd) and install
-it before enabling the service.
+The keyrad daemon binary (/usr/local/bin/keyrad) is provided by the separate
+"keyrad" package, which this plugin depends on and which is installed
+automatically.
